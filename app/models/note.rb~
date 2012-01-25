@@ -1,0 +1,24 @@
+class Note < ActiveRecord::Base
+  has_many :children, :class_name => "Note", :foreign_key => "parent_id"
+  belongs_to :parent, :class_name => "Note", :foreign_key => "parent_id"
+  
+  def self.print_tree
+    notes = where(:parent_id => 0)
+    notes.each do |note|
+      note.print_tree(0)
+    end
+  end
+  
+  def print_tree(depth)
+    p self.leader(depth) + name
+    children.each do |child|
+      child.print_tree(depth+1)
+    end
+  end
+  
+  def self.leader(depth)
+    leader = ""
+    depth.times {leader=leader+'-'}
+    leader = leader + '>' 
+  end
+end
