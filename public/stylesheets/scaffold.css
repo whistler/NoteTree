@@ -20,6 +20,10 @@ div.field, div.actions {
   margin-bottom: 10px;
 }
 
+div {
+  padding-left: 15px;
+}
+
 #notice {
   color: green;
 }
@@ -53,4 +57,16 @@ div.field, div.actions {
 #error_explanation ul li {
   font-size: 12px;
   list-style: square;
+}
+
+#tree {
+  float: left;
+  background: blue;
+  width: 30%;
+}
+
+#note {
+  float: right;
+  background: green;
+  width: 65%;
 }

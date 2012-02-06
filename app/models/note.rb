@@ -18,17 +18,19 @@ class Note < ActiveRecord::Base
   
   def self.print_html_tree
     notes = where(:parent_id => 0)
+    html = ""
     notes.each do |note|
-      note.print_html_tree
+      html += note.print_html_tree
     end
+    html
   end
   
   def print_html_tree
-    p "<div>" + name
+    html = "<div id='node-#{id}'>" + "<a onclick='show_note(#{id});'>" + name + "</a>"
     children.each do |child|
-      child.print_tree(depth+1)
+      html += child.print_html_tree
     end
-    p </div>
+    html += "</div>"
   end
   
   def leader(depth)
