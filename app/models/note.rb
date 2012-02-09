@@ -26,7 +26,7 @@ class Note < ActiveRecord::Base
   end
   
   def print_html_tree
-    html = "<div id='node-#{id}'>" + "<a onclick='show_note(#{id});'>" + name + "</a>"
+    html = "<div id='node-#{id}'>" + "<img src='images/minus.png' onclick='toggle_tree(#{id})' height=20 width=20>" + "<a onclick='show_note(#{id});'>" + name + "</a>"
     children.each do |child|
       html += child.print_html_tree
     end
