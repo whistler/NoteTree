@@ -1,9 +1,17 @@
-body { background-color: #fff; color: #333; }
+body { 
+  background-color: #fff;
+  color: #333; 
+  background-image: image-url("bg.png");
+}
 
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size:   13px;
-  line-height: 18px;
+
+$radius: 15px;
+
+@mixin rounded {
+  border-radius: $radius;
+  margin: 10px;
+  padding: 10px;
+  background: rgba(255,255,255,0.5);
 }
 
 pre {
@@ -60,13 +68,15 @@ div {
 }
 
 #tree {
+  @include rounded;
   float: left;
-  background: blue;
   width: 30%;
 }
 
 #note {
+  @include rounded;
   float: right;
-  background: green;
   width: 65%;
+  font-family: Tahoma;
+  font-size: 15px;
 }

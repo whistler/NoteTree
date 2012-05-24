@@ -3,6 +3,9 @@ source 'http://rubygems.org'
 gem 'rails', '3.2.3'
 
 group :assets do
+  gem 'compass-rails'
+  gem 'compass-colors'
+  gem 'sassy-buttons'
   gem 'sass-rails','~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier'
