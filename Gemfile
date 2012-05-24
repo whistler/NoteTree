@@ -14,6 +14,7 @@ end
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'backbone-on-rails'
 gem 'sqlite3'
 
 
@@ -45,5 +46,5 @@ gem 'github-markup'
 group :development, :test do
    gem 'pry'
    gem 'rspec-rails'
-   gem 'factory_girl'
+   gem 'factory_girl_rails'
 end
