@@ -1,6 +1,15 @@
+require 'github/markup'
+
 class Note < ActiveRecord::Base
+  SUPPORTED_MARKUPS = ["markdown","textile"]
   has_many :children, :class_name => "Note", :foreign_key => "parent_id"
   belongs_to :parent, :class_name => "Note", :foreign_key => "parent_id"
+  
+  def to_html(markup = "markdown")
+    raise UnsupportedMarkup unless SUPPORTED_MARKUPS.include?(markup)
+    GitHub::Markup.render(".#{markup}", self.content)
+  end
+    
   
   def self.print_tree
     notes = where(:parent_id => 0)
