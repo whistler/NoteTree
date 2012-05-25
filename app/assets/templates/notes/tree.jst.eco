@@ -1,0 +1,3 @@
+<% console.log(@note_list) %>
+<% for note in @note_list.models: %>
+  <li><%= note.get('note').name %></li>

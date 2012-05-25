@@ -7,4 +7,4 @@ window.Nodetree =
     notes_router = new Nodetree.Routers.Notes()
 
 $(document).ready ->
-  #Nodetree.init()
+  Nodetree.init()
