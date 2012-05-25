@@ -1,49 +1,92 @@
-// This import applies a global reset to any page that imports this stylesheet.
-@import "blueprint/reset";
+// Imports -------------------------------------------------------------------
 
-// To configure blueprint, edit the partials/base.sass file.
-@import "partials/base";
+@import "base";
 
-// Import all the default blueprint modules so that we can access their mixins.
-@import "blueprint";
+/* Layout ------------------------------------------------------------------*/
 
-// Import the non-default scaffolding module.
-@import "blueprint/scaffolding";
-
-// To generate css equivalent to the blueprint css but with your
-// configuration applied, uncomment:
-// @include blueprint
-
-// If you are doing a lot of stylesheet concatenation, it is suggested
-// that you scope your blueprint styles, so that you can better control
-// what pages use blueprint when stylesheets are concatenated together.
-body.bp {
-  @include blueprint-typography(true);
-  @include blueprint-utilities;
-  @include blueprint-debug;
-  @include blueprint-interaction;
-  // Remove the scaffolding when you're ready to start doing visual design.
-  // Or leave it in if you're happy with how blueprint looks out-of-the-box
+.container {
+  @include container;
+  @include susy-grid-background;
 }
 
-form.bp {
-  @include blueprint-form;
-  // You'll probably want to remove the scaffolding once you start styling your site.
-  @include blueprint-scaffolding; }
+body { 
+  background-color: #fff;
+  color: #333; 
+  background-image: image-url("bg.png");
+}
 
-// Page layout can be done using mixins applied to your semantic classes and IDs:
-body.two-col {
-  #container {
-    @include container; }
-  #header, #footer {
-    @include column($blueprint-grid-columns); }
-  #sidebar {
-    // One third of the grid columns, rounding down. With 24 cols, this is 8.
-    $sidebar-columns: floor($blueprint-grid-columns / 3);
-    @include column($sidebar-columns); }
-  #content {
-    // Two thirds of the grid columns, rounding up.
-    // With 24 cols, this is 16.
-    $content-columns: ceil(2 * $blueprint-grid-columns / 3);
-    // true means it's the last column in the row
-    @include column($content-columns, true); } }
+$radius: 15px;
+
+@mixin rounded {
+  border-radius: $radius;
+  margin: 1%;
+  padding: 1%;
+  background: rgba(255,255,255,0.5);
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color:#000; }
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+div {
+  padding-left: 15px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+#tree {
+  @include rounded;
+  float: left;
+  width: 10%;
+}
+
+#note {
+  @include rounded;
+  float:right;
+  font-family: Tahoma;
+  font-size: 15px;
+  width: 80%;
+}

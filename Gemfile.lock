@@ -1,3 +1,11 @@
+GIT
+  remote: git@github.com:whistler/susy.git
+  revision: be7ee1c28a61f1948d81850bb1812755b88ebb42
+  specs:
+    susy (1.0.rc.1)
+      compass (>= 0.12)
+      sass (>= 3.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -170,4 +178,5 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sassy-buttons
   sqlite3
+  susy!
   uglifier

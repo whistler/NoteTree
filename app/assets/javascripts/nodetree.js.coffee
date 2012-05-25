@@ -3,7 +3,8 @@ window.Nodetree =
   Collections: {}
   Views: {}
   Routers: {}
-  init: -> alert 'Hello from Backbone!'
+  init: ->
+    notes_router = new Nodetree.Routers.Notes()
 
 $(document).ready ->
-  Nodetree.init()
+  #Nodetree.init()

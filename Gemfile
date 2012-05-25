@@ -5,6 +5,7 @@ gem 'rails', '3.2.3'
 group :assets do
   gem 'compass-rails'
   gem 'compass-colors'
+  gem 'susy', :git => 'git@github.com:whistler/susy.git'
   gem 'sassy-buttons'
   gem 'sass-rails','~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

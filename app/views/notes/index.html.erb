@@ -1,24 +1,6 @@
-  <div id="tree">
-    <%= Note.print_html_tree.html_safe %>
-  </div>
-  <div id="note">
-  Hello
-  </div>
-
-<script>
-  function show_note(id) {
-    get_node_content(id);
-  }
-  function toggle_tree(id) {
-    //toggle all sub divs of div named node-[id]
-    $('#node-'+ id + ' > div').toggle();
-    if ($('#node-'+ id +' > img').attr('src') == 'images/plus.png')      
-      $('#node-'+id+' > img').attr({ src: "images/minus.png"});
-    else
-      $('#node-'+id+' > img').attr({ src: "images/plus.png"}); 
-  }
-  function get_node_content(id)
-  {
-    $.getJSON("notes/"+id, function(json){ $('#note').html( json.note.content); } );
-  }
-</script>
+<div id="tree" class="span-8">
+Loading Tree...
+</div>
+<div id="note" class="span-14 last">
+Loading...
+</div>
