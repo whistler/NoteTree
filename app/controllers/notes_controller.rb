@@ -1,11 +1,11 @@
 class NotesController < ApplicationController
   # GET /notes
   def index
-    @notes = Note.all
+    @notes = Note.select("id, name, content, parent_id").where(:parent_id=>0)
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json  { render :json => @notes }
+      format.json  { render :json => @notes.map{|n| n.attributes}}
     end
   end
 

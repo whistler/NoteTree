@@ -1,12 +1,16 @@
-class Nodetree.Views.NotesTree extends Backbone.View
-
-  template: JST['notes/tree']
+class Nodetree.Views.NoteTree extends Backbone.View
 
   initialize: ->
-    @note_list = new Nodetree.Collections.Notes()
-    @note_list.on('reset', @render)
-    @note_list.fetch()
-    
+    @collection.on('reset', @render)
+    @collection.on('add', @addOne)
+    @collection.fetch()
+
+  addOne: (node) =>
+    tree_item = new Nodetree.Views.TreeItem(model: node)
+    $(@.el).append(tree_item.render().el)
+
+  addAll: =>
+    @collection.forEach(@addOne)
 
   render: =>
-    $(@.el).html(@template(note_list: @note_list))
+    @addAll()

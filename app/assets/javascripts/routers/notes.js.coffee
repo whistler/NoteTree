@@ -4,8 +4,12 @@ class Nodetree.Routers.Notes extends Backbone.Router
     ':id':'show'
   
   initialize: ->
-    @index_view = new Nodetree.Views.NotesIndex()
-    @tree_view = new Nodetree.Views.NotesTree()
+    Backbone.gevents = _.extend({}, Backbone.Events);
+    @notes = new Nodetree.Collections.Notes()
+    @notes.fetch()
+    @note = new Nodetree.Models.Note()
+    @index_view = new Nodetree.Views.NotesIndex(model: @note)
+    @tree_view = new Nodetree.Views.NoteTree(collection: @notes)
     Backbone.history.start({pushState: true})
 
   showTree: =>

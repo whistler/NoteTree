@@ -2,7 +2,12 @@ class Nodetree.Views.NotesIndex extends Backbone.View
 
   template: JST['notes/index']
 
-  initialize: ->
+  initialize: =>
+    Backbone.gevents.on('show_note', @show)
+    @model.on('change', @render)
 
-  render: ->
-    $(@.el).html(@template)
+  show: (note) =>
+    @model.set(note.attributes)
+
+  render: =>
+    $(@.el).html(@template(model: @model))
