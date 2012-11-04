@@ -17,7 +17,7 @@ end
 
 gem 'backbone-on-rails'
 gem 'sqlite3'
-
+gem 'twitter-bootstrap-rails'
 
 gem 'jquery-rails'
 gem 'redcarpet'

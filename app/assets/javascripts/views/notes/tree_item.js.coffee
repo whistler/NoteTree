@@ -8,8 +8,7 @@ class Nodetree.Views.TreeItem extends Backbone.View
   initialize: =>
 
   show_note: =>
-    Backbone.gevents.trigger('show_note', @model)
-    console.log("trigger show note")
+    Backbone.gevents.trigger('note_click', @model)
 
   render: =>
     $(@.el).html(@template(note: @model))
